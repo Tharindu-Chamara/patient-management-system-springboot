@@ -1,10 +1,12 @@
 package edu.icet.demo.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.icet.demo.dto.PatientRequestDTO;
 import edu.icet.demo.dto.PatientResponseDTO;
 import edu.icet.demo.model.Patient;
 import edu.icet.demo.repository.PatientRepository;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +36,9 @@ public class PatientService {
         return list;
  }
 
+    public void savePatient(@Valid PatientRequestDTO requestDTO){
+        Patient patient = mapper.convertValue(requestDTO, Patient.class);
+        patientRepository.save(patient);
+
+    }
 }

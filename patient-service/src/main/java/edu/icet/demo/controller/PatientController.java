@@ -1,25 +1,33 @@
 package edu.icet.demo.controller;
 
+import edu.icet.demo.dto.PatientRequestDTO;
 import edu.icet.demo.dto.PatientResponseDTO;
 import edu.icet.demo.service.PatientService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/patinet")
-@RequiredArgsConstructor
+@RequestMapping("/patient-request")
+@CrossOrigin
 public class PatientController {
 
-    private static PatientService service;
+    private  PatientService service;
+
+    PatientController(PatientService service1){
+        this.service=service1;
+    }
 
 
     @GetMapping
     public List<PatientResponseDTO> getPatient(){
         return  service.getPatient();
+    }
+
+    @PostMapping
+    public void savePatient (@Valid @RequestBody PatientRequestDTO requestDTO){
+        service.savePatient(requestDTO);
     }
 
 }

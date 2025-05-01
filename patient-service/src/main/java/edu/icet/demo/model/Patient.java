@@ -5,8 +5,6 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Setter
@@ -29,9 +27,9 @@ public class Patient {
     private String address;
 
     @NotNull
-    private LocalDate dateOfBirthDay;
+    private String dateOfBirthDay;
 
     @NotNull
-    private LocalDate registerDate;
+    private String registerDate;
 
 }
