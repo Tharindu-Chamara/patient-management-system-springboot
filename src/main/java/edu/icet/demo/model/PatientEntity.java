@@ -14,7 +14,7 @@ import java.util.UUID;
 @jakarta.persistence.Entity
 @Setter
 @Getter
-public class Entity {
+public class PatientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
