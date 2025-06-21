@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url :
-    username:
-    password:
+    url : jdbc:mysql://localhost:3306/patient
+    username: root
+    password: 99990000
   jpa:
     hibernate:
-      ddl-auto:
-    show-sql :
+      ddl-auto: update
+    show-sql : true
