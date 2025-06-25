@@ -1,12 +1,12 @@
 package edu.icet.demo.service;
 
-import edu.icet.demo.repository.PatientRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import edu.icet.demo.dto.PatientRequestDTO;
+import edu.icet.demo.dto.PatientResponseDTO;
 
-@Service
-@RequiredArgsConstructor
-public class PatientService {
+public interface PatientService {
+    public void savePatient(PatientRequestDTO requestDTO);
 
-    private final PatientRepository repository;
+    public PatientResponseDTO retrivePatients(String nicNumber);
+
+
 }

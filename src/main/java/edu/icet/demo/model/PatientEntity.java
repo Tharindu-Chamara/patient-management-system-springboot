@@ -6,9 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
-
-
-import java.time.LocalDate;
 import java.util.UUID;
 
 @jakarta.persistence.Entity
@@ -21,14 +18,16 @@ public class PatientEntity {
 
     private String name;
 
+    private String nic;
+
     @Column(unique = true)
     private String email;
 
     private String address;
 
-    private LocalDate dateOfBirth;
+    private String  dateOfBirth;
 
-    private LocalDate registerDate;
+    private String registerDate;
 
 
 }

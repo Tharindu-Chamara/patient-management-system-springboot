@@ -1,23 +1,33 @@
 package edu.icet.demo.controller;
 
-import edu.icet.demo.dto.Patient;
+import edu.icet.demo.dto.PatientRequestDTO;
+import edu.icet.demo.dto.PatientResponseDTO;
 import edu.icet.demo.service.PatientService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/patients")
 @RequiredArgsConstructor
+@Slf4j
 public class PatientController {
 
-     private final PatientService service;
+     public final PatientService service;
 
-     @GetMapping
-     public void getPatients(){ //1.15 min
+     @PostMapping
+     public void savePatients(@RequestBody  @Valid PatientRequestDTO requestDTO){  //this method main job is save product
+           service.savePatient(requestDTO);
+           log.debug("done");// to database but im use save name for
+                                                                       //my comfortable
+     }
+     @GetMapping("/{nicNumber}")
+     public PatientResponseDTO retrivePatient(@PathVariable String nicNumber ){
+         return service.retrivePatients(nicNumber);
 
      }
+
+
 
 }
