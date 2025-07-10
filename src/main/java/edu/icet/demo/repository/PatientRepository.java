@@ -10,8 +10,13 @@ import java.util.UUID;
 @Repository
 public interface
 PatientRepository extends JpaRepository<PatientEntity ,UUID>{
+       List<PatientEntity> findByNic(String nic);
 
-    List<PatientEntity> findByNic(String nic);
+       boolean existsByEmail(String email);
+
+
+
+
 }
 
 
