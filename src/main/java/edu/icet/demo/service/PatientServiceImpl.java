@@ -54,6 +54,10 @@ public class PatientServiceImpl implements PatientService {
         return mapper.convertValue(save,PatientResponseDTO.class);
 
     }
+    @Override
+    public  void deletePatient(UUID id){
+        repository.deleteById(id);
+    }
 
 
 
